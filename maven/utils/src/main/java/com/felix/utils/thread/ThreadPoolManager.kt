@@ -76,20 +76,20 @@ internal class ThreadPoolManager private constructor() {
     }
 }
 
-val DBThreadDelegate
+val DBThreadProxy
     get() = ThreadPoolManager.instance.getDBThreadPool()
 
-val NetThreadDelegate
+val NetThreadProxy
     get() = ThreadPoolManager.instance.getNetThreadPool()
 
-val ComputeThreadDelegate
+val ComputeThreadProxy
     get() = ThreadPoolManager.instance.getComputeThreadPool()
 
-val ScheduleThreadDelegate
+val ScheduleThreadProxy
     get() = ThreadPoolManager.instance.getScheduleThreadPool()
 
-val BackstageThreadDelegate
+val BackstageThreadProxy
     get() = ThreadPoolManager.instance.getBackstageThreadPool()
 
-val ThreadDelegate
+val ThreadProxy
     get() = ThreadPoolManager.instance.getCommonThreadPool()

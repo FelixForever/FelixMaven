@@ -1,14 +1,16 @@
-package com.felix.utils.utils
+package com.felix.utils.utils.encryption
 
 import java.security.MessageDigest
 
-
 /**
- * @Author: Mingfa.Huang
- * @Date: 2021/2/2
- * @Des: EncryptionUtils
+ *
+ * @ProjectName: FelixMaven
+ * @Package: com.felix.utils.utils.encryption
+ * @ClassName: Md5Utils
+ * @Author: 80341341
+ * @CreateDate: 2021/8/9 16:02
+ * @Description: Md5Utils 类作用描述
  */
-
 fun String.md5(): String? {
     return this.runCatching {
         MessageDigest.getInstance("MD5").digest(this.toByteArray())
@@ -25,4 +27,3 @@ fun String.md5(): String? {
         hex.toString()
     }
 }
-

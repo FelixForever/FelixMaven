@@ -11,9 +11,12 @@ internal class GsonManager private constructor() {
     val gson: Gson = Gson()
 }
 
-val GsonDelegate
+val GsonProxy
     get() = GsonManager.instance.gson
 
-inline fun <T> T.toJson(): String = GsonDelegate.toJson(this) ?: ""
-inline fun <reified T> String.fromJson(): T? = GsonDelegate.fromJson<T>(this, object :
-    TypeToken<T>() {}.type)
+@Suppress("unused")
+fun <T> T.toJson(): String = GsonProxy.toJson(this) ?: ""
+
+@Suppress("unused")
+inline fun <reified T> String.fromJson(): T? =
+    GsonProxy.fromJson<T>(this, object : TypeToken<T>() {}.type)

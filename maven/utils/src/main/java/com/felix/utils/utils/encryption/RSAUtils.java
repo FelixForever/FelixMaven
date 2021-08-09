@@ -1,4 +1,4 @@
-package com.felix.utils.utils;
+package com.felix.utils.utils.encryption;
 
 import java.math.BigInteger;
 import java.security.KeyFactory;
