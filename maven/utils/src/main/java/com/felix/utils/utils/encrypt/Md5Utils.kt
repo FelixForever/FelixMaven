@@ -1,4 +1,4 @@
-package com.felix.utils.utils.encryption
+package com.felix.utils.utils.encrypt
 
 import java.security.MessageDigest
 

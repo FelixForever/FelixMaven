@@ -1,7 +1,6 @@
-package com.felix.utils.utils.encryption
+package com.felix.utils.utils.encrypt
 
 import android.util.Base64
-import com.felix.utils.utils.md5
 import javax.crypto.Cipher
 import javax.crypto.spec.SecretKeySpec
 

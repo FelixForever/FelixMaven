@@ -1,6 +1,6 @@
 package com.felix.utils.utils
 
-import com.felix.utils.AppDelegate
+import com.felix.utils.AppProxy
 
 /**
  *
@@ -12,31 +12,31 @@ import com.felix.utils.AppDelegate
  * @Description: DensityUtils类作用描述
  */
 fun Float.toDp(): Float {
-    val density = AppDelegate.resources.displayMetrics.density
+    val density = AppProxy.resources.displayMetrics.density
     return this / density
 }
 
 fun Int.toDp(): Float {
-    val density = AppDelegate.resources.displayMetrics.density
+    val density = AppProxy.resources.displayMetrics.density
     return this / density
 }
 
 fun Float.toSp(): Float {
-    val density = AppDelegate.resources.displayMetrics.scaledDensity
+    val density = AppProxy.resources.displayMetrics.scaledDensity
     return this / density
 }
 
 fun Int.toSp(): Float {
-    val density = AppDelegate.resources.displayMetrics.scaledDensity
+    val density = AppProxy.resources.displayMetrics.scaledDensity
     return this / density
 }
 
 fun Float.toPx(): Float {
-    val density = AppDelegate.resources.displayMetrics.density
+    val density = AppProxy.resources.displayMetrics.density
     return this * density
 }
 
 fun Int.toPx(): Float {
-    val density = AppDelegate.resources.displayMetrics.density
+    val density = AppProxy.resources.displayMetrics.density
     return this * density
 }

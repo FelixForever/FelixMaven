@@ -15,7 +15,7 @@ uploadArchives {
         if (mavenLocal) {
             repository(url: uri("${System.getenv("USERPROFILE")}/.m2/repository"))
         } else {
-            repository(url: uri('../repository'))
+            repository(url: uri("$rootDir/repository"))
         }
         pom.groupId = "com.felix.${name}"// 唯一标识（通常为模块包名，也可以任意）
         pom.artifactId = "felix-${name}" // 项目名称（通常为类库模块名称，也可以任意）

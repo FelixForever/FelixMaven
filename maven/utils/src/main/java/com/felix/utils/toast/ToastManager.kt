@@ -2,8 +2,7 @@ package com.felix.lib_app_tools.toast
 
 import android.view.Gravity
 import android.widget.Toast
-import com.felix.utils.AppDelegate
-import com.felix.utils.handler.UIDelegate
+import com.felix.utils.AppProxy
 import com.felix.utils.handler.UIProxy
 
 internal class ToastManager private constructor() : IToast {
@@ -17,7 +16,7 @@ internal class ToastManager private constructor() : IToast {
 
     init {
         UIProxy.post {
-            toast = Toast.makeText(AppDelegate, "", Toast.LENGTH_SHORT)
+            toast = Toast.makeText(AppProxy, "", Toast.LENGTH_SHORT)
         }
     }
 

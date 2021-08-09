@@ -9,8 +9,8 @@ import android.app.Application
  */
 object AppUtils {
     fun setup(application: Application) {
-        AppDelegate = application
+        AppProxy = application
     }
 }
 
-lateinit var AppDelegate: Application
+lateinit var AppProxy: Application

@@ -22,9 +22,9 @@ buildscript {
 allprojects {
     repositories {
         maven {
-            url uri('../repository')
+            url uri("$rootDir/repository")
         }
-        mavenLocal()
+//        mavenLocal()
         maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://maven.aliyun.com/repository/central' }
         maven { url 'https://maven.aliyun.com/repository/releases' }
@@ -37,4 +37,14 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+project.allprojects.find {
+    it.name.contains("maven")
+}?.subprojects { p ->
+    def camelName = p.name[0].toUpperCase().plus(p.name.substring(1))
+    task("upload$camelName") {
+        group 'felix'
+        dependsOn(":maven:${p.name}:uploadArchives")
+    }
 }
