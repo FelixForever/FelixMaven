@@ -1,0 +1,18 @@
+apply plugin: 'com.novoda.bintray-release'
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.novoda:bintray-release:0.9.2'
+    }
+}
+//gradlew clean build bintrayUpload -PbintrayUser=felixforever -PbintrayKey=b27dc317644ed376cf84138ff81c9ac8d0ce04ed -PdryRun=false
+publish {
+    userOrg = 'felix-maven'
+    groupId = 'com.felix.utils'
+    artifactId = 'felix-utils'
+    publishVersion = android.defaultConfig.versionName
+    desc = 'utils for android.'
+    website = 'https://github.com/felix-maven/FelixUtils'
+}
