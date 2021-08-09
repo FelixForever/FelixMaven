@@ -6,7 +6,6 @@ import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.felix.lib_app_tools.toast.ToastDelegate
-import com.felix.utils.app.R
 import com.felix.utils.utils.ITAG
 import com.felix.utils.widget.dialog.IInfoDialog
 import com.felix.utils.widget.dialog.ILoadDialog

@@ -1,3 +1,7 @@
+import com.felix.version.Compile
+import com.felix.version.Felix
+import com.felix.version.Libs
+
 apply from: "$rootDir/gradle/pin/switch.gradle"
 if (new File(projectDir, "switch.gradle").exists()) {
     apply from: "switch.gradle"
@@ -6,14 +10,14 @@ apply from: "$rootDir/gradle/pin/plugin.gradle"
 apply from: "$rootDir/gradle/pin/pin.gradle"
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion Compile.compileSdk
+    buildToolsVersion Compile.buildSdk
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 29
-        versionCode 10008
-        versionName "1.0.8"
+        minSdkVersion Compile.minSdk
+        targetSdkVersion Compile.targetSdk
+        versionCode Felix.ArchVersionCode
+        versionName Felix.ArchVersionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -34,22 +38,15 @@ android {
 apply from: "$rootDir/gradle/maven/maven.gradle"
 apply from: "$rootDir/gradle/maven/publish.gradle"
 dependencies {
-    api "com.felix.utils:felix-utils:1.0.8"
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.3.2'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation Felix.utils
+    implementation Libs.Kotlin.stdlib
+    implementation Libs.AndroidX.coreKtx
+    implementation Libs.AndroidX.appcompat
+    implementation Libs.google.material
+    implementation Libs.Coroutines.core
 
-    api 'androidx.legacy:legacy-support-v4:1.0.0'
-    api 'com.google.android.material:material:1.2.1'
-    api 'androidx.navigation:navigation-fragment:2.3.0'
-    api 'androidx.navigation:navigation-ui:2.3.0'
-    api 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    api 'androidx.navigation:navigation-fragment-ktx:2.3.0'
-    api 'androidx.navigation:navigation-ui-ktx:2.3.0'
-    api "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
-
+    testImplementation Libs.junit
+    androidTestImplementation Libs.AndroidX.Test.Ext.junit
+    androidTestImplementation Libs.AndroidX.Test.espressoCore
 }
