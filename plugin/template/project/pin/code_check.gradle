@@ -1,0 +1,52 @@
+import java.nio.file.FileVisitResult
+import java.nio.file.attribute.BasicFileAttributes
+
+task code_check {
+    doLast {
+        // 加载pins模块依赖文件
+        def dependenciesFile = new File(projectDir, 'src/p_module1/dependencies.groovy')
+        def ref = null
+        dependenciesFile.readLines().each {
+            ref = it
+        }
+        // 扫描pins模块内部源文件
+        File javaDir = new File(projectDir, 'src/p_module1/java')
+        Files.walkFileTree(javaDir.toPath(), new FileVisitor<Path>() {
+            @Override
+            FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
+                return FileVisitResult.CONTINUE
+            }
+
+            @Override
+            FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+                file.readLines().each {
+                    if (it.endsWith(ref)) {
+                        System.err.println("p_module1模块引用了不能引用的模块！")
+                        return FileVisitResult.TERMINATE
+                    }
+                }
+                return FileVisitResult.CONTINUE
+            }
+
+            @Override
+            FileVisitResult visitFileFailed(Path file, IOException exc) throws IOException {
+                return FileVisitResult.CONTINUE
+            }
+
+            @Override
+            FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
+                return FileVisitResult.CONTINUE
+            }
+
+            @Override
+            void visitDir(FileVisitDetails fileVisitDetails) {
+
+            }
+
+            @Override
+            void visitFile(FileVisitDetails fileVisitDetails) {
+
+            }
+        })
+    }
+}
