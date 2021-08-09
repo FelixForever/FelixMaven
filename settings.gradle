@@ -1,4 +1,4 @@
-include ':utils'
-include ':arch'
+include ':maven:utils'
+include ':maven:arch'
 include ':app'
 rootProject.name = "FelixMaven"
