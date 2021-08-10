@@ -43,9 +43,6 @@ internal class ToastManager private constructor() : IToast {
     }
 }
 
-val ToastDelegate: IToast
-    get() = ToastManager.instance
-
 val ToastProxy: IToast
     get() = ToastManager.instance
 

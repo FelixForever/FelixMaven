@@ -1,7 +1,7 @@
 package com.felix.arch.mvvm
 
 import android.os.Bundle
-import com.felix.lib_app_tools.toast.ToastDelegate
+import com.felix.lib_app_tools.toast.ToastProxy
 import com.felix.lib_arch.mvvm.BaseActivity
 
 open class BaseMvvmActivity<VM : BaseViewModel> : BaseActivity(), BaseMvvmView<VM> {
@@ -17,7 +17,7 @@ open class BaseMvvmActivity<VM : BaseViewModel> : BaseActivity(), BaseMvvmView<V
 
     protected open fun onResultCallback(resultBean: ResultBean) {
         if (!resultBean.isSuccess) {
-            ToastDelegate.show(resultBean.msg)
+            ToastProxy.show(resultBean.msg)
         }
     }
 }

@@ -5,7 +5,7 @@ import android.app.ProgressDialog
 import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.felix.lib_app_tools.toast.ToastDelegate
+import com.felix.lib_app_tools.toast.ToastProxy
 import com.felix.utils.utils.ITAG
 import com.felix.utils.widget.dialog.IInfoDialog
 import com.felix.utils.widget.dialog.ILoadDialog
@@ -20,6 +20,6 @@ class MainActivity : AppCompatActivity(), ILoadDialog, IInfoDialog, ITAG {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        ToastDelegate.show("this is test")
+        ToastProxy.show("this is test")
     }
 }
