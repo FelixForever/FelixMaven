@@ -44,12 +44,12 @@ internal class ToastManager private constructor() : IToast {
 }
 
 val ToastDelegate: IToast
-    get() = ToastProxy
+    get() = ToastManager.instance
 
 val ToastProxy: IToast
     get() = ToastManager.instance
 
 @Suppress("unused")
 fun String.showToast(duration: Int = Toast.LENGTH_SHORT, gravity: Int = Gravity.CENTER) {
-    ToastDelegate.show(this, duration, gravity)
+    ToastProxy.show(this, duration, gravity)
 }

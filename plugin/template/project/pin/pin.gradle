@@ -2,6 +2,12 @@ import java.util.function.Function
 import java.util.function.Predicate
 
 android {
+    if (isApp) {
+        defaultConfig {
+            applicationId "com.felix.${project.name}"
+        }
+    }
+
     def src_dir = new File(projectDir, 'src')
     def filter = new Predicate<String>() {
         @Override

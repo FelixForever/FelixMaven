@@ -6,12 +6,12 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.felix.lib_app_tools.toast.ToastDelegate
+import com.felix.lib_app_tools.toast.ToastProxy
 import com.felix.utils.utils.ITAG
-import com.felix.utils.utils.RSAUtils
-import com.felix.utils.utils.encryption.aes
-import com.felix.utils.utils.encryption.decAes
-import com.felix.utils.utils.md5
+import com.felix.utils.utils.encrypt.RSAUtils
+import com.felix.utils.utils.encrypt.aes
+import com.felix.utils.utils.encrypt.decAes
+import com.felix.utils.utils.encrypt.md5
 import com.felix.utils.widget.dialog.IInfoDialog
 import com.felix.utils.widget.dialog.ILoadDialog
 import kotlinx.android.synthetic.main.activity_main.*
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity(), ILoadDialog, IInfoDialog, ITAG {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        ToastDelegate.show("this is test")
+        ToastProxy.show("this is test")
         tvTest.setOnClickListener {
 //            rsaTest()
             showInfo("哈哈哈")
