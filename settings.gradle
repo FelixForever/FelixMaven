@@ -2,3 +2,7 @@ include ':maven:utils'
 include ':maven:arch'
 include ':app'
 rootProject.name = "FelixMaven"
+include ':maven:appinit:annotation'
+include ':maven:appinit:apt'
+include ':maven:appinit:core'
+include ':maven:appinit:plugin'

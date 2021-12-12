@@ -5,6 +5,7 @@ import com.felix.version.Libs
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion Compile.compileSdk
@@ -35,9 +36,15 @@ dependencies {
     implementation Libs.AndroidX.coreKtx
     implementation Libs.AndroidX.appcompat
     implementation Libs.AndroidX.constraintlayout
+    kapt project(path: ':maven:appinit:apt')
+    implementation project(path: ':maven:appinit:core')
+//    implementation project(path: ':maven:appinit:plugin')
+    implementation project(path: ':maven:appinit:annotation')
     testImplementation Libs.junit
     androidTestImplementation Libs.AndroidX.Test.Ext.junit
     androidTestImplementation Libs.AndroidX.Test.espressoCore
 
     api Libs.Squareup.okio
+
+
 }
